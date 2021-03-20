@@ -1,0 +1,42 @@
+{
+  "name": "automationpractice",
+  "version": "1.0.0",
+  "description": "Carrinho de compra automationpratice",
+  "main": "index.js",
+  "scripts": {
+    "test": "npm run clean:reports && npm run cypress:run && npm run create:report",
+    "cypress:open": "cypress open",
+    "cypress:run": "cypress run --headless --browser electron",
+    "clean:reports": "rm -R -f ./reports && mkdir ./reports && mkdir ./reports/mochareports",
+    "combine-reports": "mochawesome-merge ./reports/mocha/*.json > ./reports/mochareports/report.json",
+    "generate-report": "marge ./reports/mochareports/report.json -f report -o ./reports",
+    "create:report": "npm run combine-reports && npm run generate-report",
+    "eslint": "eslint integration",
+    "lint": "eslint '*.js' '**/**/*.js'",
+    "lint-fix": "npm run lint -- --fix"
+  },
+  "keywords": [
+    "cypress",
+    "javascript",
+    "cucumber",
+    "node",
+    "bdd",
+    "npm"
+  ],
+  "author": "Deibson Fagner",
+  "license": "ISC",
+  "devDependencies": {
+    "cypress": "^6.8.0",
+    "cypress-cucumber-preprocessor": "^4.0.1",
+    "cypress-eslint-preprocessor": "^1.2.2",
+    "cypress-multi-reporters": "^2.0.1",
+    "mocha": "^8.3.2",
+    "mochawesome": "^6.2.2",
+    "mochawesome-merge": "^4.2.0",
+    "mochawesome-report-generator": "^5.2.0",
+    "cypress-xpath": "^1.6.2"
+  },
+  "cypress-cucumber-preprocessor": {
+    "step_definitions": "cypress/integration/steps"
+  }
+}

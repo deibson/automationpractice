@@ -1,0 +1,21 @@
+{
+  "baseUrl": "http://automationpractice.com/",
+  "testFiles": "**/*.feature",
+  "watchForFileChanges": false,
+  "pluginsFile": "cypress/plugins",
+  "supportFile": "cypress/support",
+  "fixturesFolder": "cypress/fixtures",
+  "integrationFolder": "cypress/integration",
+  "video": false,
+  "reporter": "cypress-multi-reporters",
+  "reporterOptions": {
+    "reporterEnabled": "mochawesome",
+    "mochawesomeReporterOptions": {
+      "reportDir": "./reports/mocha",
+      "quite": true,
+      "overwrite": false,
+      "html": false,
+      "json": true
+    }
+  }
+}
