@@ -11,12 +11,13 @@ Funcionalidade: Carrinho de produtos
     Quando eu pesquiso produtos com as caracteristicas "<caracteristica>"
     Entao eu verifico o resultado da pesquisa
     Entao eu seleciono um produto
-    E eu adiciono o produto no carrinho de compras
-    E eu faço o checkout
+    Entao eu verifico os dados do produto
+    E que eu adiciono o produto no carrinho de compras
+    Entao eu continuo o processo de checkout
+    E que eu faço o checkout
 
     Exemplos:
       | caracteristica     |
       | Faded Short Sleeve |
       | Printed Dress      |
-
-
+      | Blouse             |

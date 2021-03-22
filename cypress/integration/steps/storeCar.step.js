@@ -2,6 +2,8 @@
 const homePage = require('../pages/home.page')
 const searchPage = require('../pages/search.page')
 const productPage = require('../pages/product.page')
+const checkoutPage = require('../pages/checkout.page')
+let dataProduct
 
 Given('que eu acesso a página inicial', () => {
     homePage.open()
@@ -21,13 +23,22 @@ Then('eu verifico o resultado da pesquisa', () => {
 })
 
 Then('eu seleciono um produto', () => {
+    dataProduct = searchPage.searchDataProduct()
     searchPage.selectProduct()
 })
 
-And('eu adiciono o produto no carrinho de compras', () => {
+Then('eu verifico os dados do produto', () => {
+    dataProduct = productPage.verifyDataProduct(dataProduct)
+})
+
+And('que eu adiciono o produto no carrinho de compras', () => {
     productPage.addProduct()
 })
 
-And('eu faço o checkout', () => {
-    productPage.checkout()
+Then('eu continuo o processo de checkout', () => {
+    productPage.advanceCheckout()
+})
+
+And('que eu faço o checkout', () => {
+    checkoutPage.checkDataProduct(dataProduct)
 })
