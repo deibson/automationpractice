@@ -15,7 +15,7 @@ jobs:
     strategy:
       matrix:
         node-version: [14.x, 15.x]
-        os:[ubuntu-latest, windows-latest, macOS-latest]
+        os: [ubuntu-latest, windows-latest, macOS-latest]
 
     steps:
     - uses: actions/checkout@v2
@@ -25,5 +25,5 @@ jobs:
         node-version: ${{ matrix.node-version }}
     
     - name: Run Cypress Automation
-    - run: npm ci
+    - run: npm i
     - run: npm run cypress:run
